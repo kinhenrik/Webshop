@@ -291,6 +291,7 @@ public class UserInterface {
                 case 1:
                     order.productList.add(pants);
                     System.out.println("Product added to cart!");
+                    order.notifyCEO(false);
                     running = false;
                     createMenu();
                     break;
@@ -432,6 +433,7 @@ public class UserInterface {
                 case 1:
                     order.productList.add(skirt);
                     System.out.println("Product added to cart!");
+                    order.notifyCEO(false);
                     running = false;
                     createMenu();
                     break;
@@ -588,6 +590,7 @@ public class UserInterface {
                 case 1:
                     order.productList.add(tShirt);
                     System.out.println("Product added to cart!");
+                    order.notifyCEO(false);
                     running = false;
                     createMenu();
                     break;
@@ -621,7 +624,7 @@ public class UserInterface {
         while (running) {
             switch (scanner.nextInt()) {
                 case 1:
-                    order.notifyCEO();
+                    order.notifyCEO(true);
                     receipt = new Receipt(user, order);
                     running = false;
                     createMenu();

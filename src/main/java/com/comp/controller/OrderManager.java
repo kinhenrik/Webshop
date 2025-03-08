@@ -21,10 +21,17 @@ public class OrderManager {
         orderListeners.remove(listener);
     }
 
-    public void notifyListeners(Order order) {
+    public void notifyListenersNewOrder(Order order) {
         System.out.println("\nNotifying CEO about new order...");
         for (OrderListener listeners : orderListeners) {
-            listeners.update(order);
+            listeners.updateOrderPending(order);
+        }
+    }
+
+    public void notifyListenersDone(Order order) {
+        System.out.println("\nNotifying CEO that order is done...");
+        for (OrderListener listeners : orderListeners) {
+            listeners.updateOrderDone(order);
         }
     }
 

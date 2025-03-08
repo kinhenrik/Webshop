@@ -15,7 +15,11 @@ public class Order {
         orderManager = OrderManager.getInstance();
     }
 
-    protected void notifyCEO() {
-        orderManager.notifyListeners(this);
+    protected void notifyCEO(boolean done) {
+        if (done) {
+            orderManager.notifyListenersDone(this);
+        } else {
+            orderManager.notifyListenersNewOrder(this);
+        }
     }
 }
